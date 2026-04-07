@@ -1,2 +1,19 @@
 ---
+- name: Simple Deploy MyMavenProject
+  hosts: myserver      # Replace with your server group name in inventory
+  become: yes
 
+  tasks:
+
+    - name: Create deployment folder
+      file:
+        path: /opt/mymavenproject/
+        state: directory
+
+    - name: Copy JAR to remote server
+      copy:
+        src: target/MyMavenProject-1.0-SNAPSHOT.jar
+        dest: /opt/mymavenproject/MyMavenProject.jar
+
+    - name: Run the app
+      shell: "java -jar /opt/mymavenproject/MyMavenProject.jar &"
