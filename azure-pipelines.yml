@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: azure-pipelines.yml
+  vmImage: default
 
 steps:
 - task: Maven@3
