@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  name: Default
+  name: My Lab Agent
 
 steps:
 - task: Maven@3
